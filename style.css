@@ -13,6 +13,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .logo{
     width:100px;
@@ -36,6 +37,8 @@ header{
     margin-right: 10px;
     border-radius: 3px;
     padding: 0px 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
 
 }
 .search i{
@@ -47,6 +50,33 @@ header{
     border: none;
     outline: none;
 }
+.recent_search{
+    position: absolute;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 300px;
+    width: 100%;
+    top: 33px;
+    margin-left: -10px;
+    display: none;
+}
+.search:focus-within .recent_search{
+    display: block;
+}
+
+.recent-list{
+    display: flex;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+.recent-list p{
+    padding-left: 10px;
+    font-size: 14px;
+}
+.recent-list i{
+    color:#7a7a7a;
+}
+
 
 
 /* /////////   LoginBtn  /////////////////// */
@@ -117,3 +147,122 @@ header{
 }
 
 
+
+
+
+
+
+
+/* ***********************  CATEGORY ********************************** */
+
+#category{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 550;
+    padding: 12px 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#category>div{
+    width: 9%;
+
+}
+
+#category>div>a>img{
+    width:60px;
+}
+#category>div>a{
+    text-decoration: none;
+}
+#category>div>a>p{
+    color:black;
+    
+}
+
+#category>div>a>i{
+    font-size: 10px; 
+   
+    
+}
+
+#category>div:hover i{
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+/* ******************* Banner ************************************************** */
+.SliderBanner{
+    width: 100%;
+    position: relative;
+    background-color: #f1f3f6;
+    height:280px;
+    display: flex;
+   
+    
+
+}
+
+.imageSliderList{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    display: flex;
+    /* z-index: 11; */
+     
+} 
+
+.imageSliderItem{
+   width: 99%;
+    height: 100%;
+    padding-left: 5px;
+    
+   
+}
+.imageSliderItem img{
+   
+    height: 100%;
+   
+}
+
+
+.imageSliderBtn{
+    position: absolute;
+    /* z-index: 10; */
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+
+}
+
+.imageSliderBtn button{
+    padding: 37px 22px;
+    background-color: white;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 20px;
+    border-radius: 5px;
+    z-index: 13;
+}
+
+
+
+
+
+
+
+
+ 
