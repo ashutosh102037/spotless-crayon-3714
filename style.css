@@ -14,6 +14,11 @@ header{
     justify-content: center;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top:0;
+    z-index: 100;
+    width: 100%;
+
 }
 .logo{
     width:100px;
@@ -99,6 +104,21 @@ header{
     text-decoration: none;
 }
 
+.login_manue{
+    position: absolute;
+    width: 100%;
+    max-width: 200px;
+    background-color: white;
+    height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: translateX(-30%);
+    display:none;
+    margin-top: 8px;
+
+}
+.loginBtn:hover .login_manue{
+  display:block;
+}
 
 
    /* ////////////////   Become a seller Button    ////////////////////////// */
@@ -128,6 +148,21 @@ header{
 
 .more-link:hover .icon_more{
     transform: rotate(180deg);
+}
+
+.more_menue{
+    position: absolute;
+    width: 100%;
+    max-width: 200px;
+    background-color: white;
+    height: 200px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: translateX(-30%);
+    display:none;
+    margin-top: 4px;
+}
+.more-link:hover .more_menue{
+    display:block;
 }
 
 
@@ -165,6 +200,9 @@ header{
     font-weight: 550;
     padding: 12px 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 20px;
+    margin-top: 60px;
+  
 }
 
 #category>div{
@@ -193,6 +231,88 @@ header{
     transform: rotate(180deg);
 }
 
+.fashion_manue{
+    position: absolute;
+    width: 100%;
+    max-width: 350px;
+    background-color:white;
+    height: 380px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* transform: translateX(-30%); */
+    display:none;
+    z-index: 100;
+
+}
+.fashion:hover .fashion_manue{
+    display:block;
+}
+
+.Electronic_manue{
+    position: absolute;
+    width: 100%;
+    max-width: 350px;
+    background-color:white;
+    height: 380px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display:none;
+    z-index: 100;
+    transform: translateX(-30%);
+    
+}
+.Electronic:hover .Electronic_manue{
+    display:block ;
+}
+
+
+.home_manue{
+    position: absolute;
+    width: 100%;
+    max-width: 350px;
+    background-color:white;
+    height: 380px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display:none;
+    z-index: 100;
+    transform: translateX(-30%);
+}
+
+.Home:hover .home_manue{
+    display:block ;
+}
+
+
+.Beauty_menue{
+    position: absolute;
+    width: 100%;
+    max-width: 350px;
+    background-color:white;
+    height: 380px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display:none;
+    z-index: 100;
+    transform: translateX(-60%);
+}
+
+.Beauty:hover .Beauty_menue{
+    display:block ;
+}
+
+ .Wheeler_manu{
+    position: absolute;
+    width: 100%;
+    max-width: 200px;
+    background-color:white;
+    height: 130px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display:none;
+    z-index: 100;
+    transform: translateX(-60%);
+}
+
+.Wheeler:hover .Wheeler_manu{
+    display:block ;
+}
+ 
 
 
 
@@ -266,6 +386,7 @@ header{
     width: 99%;
     height: 310px;
     background-color: red;
+    display: flex;
 }
 .bestofElectronicmoreOption{
     height: 100px;
@@ -347,16 +468,221 @@ header{
     color:#000;
 }
 
+.productBtn{
+    position:absolute; 
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+  
+   
+
+}
+
+.productBtn button{
+    position:relative; 
+    padding: 37px 15px;
+    background-color: white;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 20px;
+    border-radius: 5px;
+    z-index: 13;
+   margin-top:120px ;
+   margin-left: 210px;
+  
+} 
+
+#prev_Btn{
+    /* display:none; */
+}
 
 
 
 
+/* ************************************* Category ******************************* */
+
+.paragraph{
+    
+    margin-top: 90px;
+    padding-left: 10px;
+}
+.paragraph P{
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+.paragraph h6{
+    color: #2874f0;
+}
+
+.banner{
+    width:99%;
+    
+    margin-top: 8px;
+}
+.banner img{
+    width:100%;
+}
+
+.banner2{
+    width:99%;
+   
+}
+.banner2 img{
+    width:100%;
+}
+
+.banner3{
+    width:99%;
+    
+}
+.banner3 img{
+    width:100%;
+}
+
+
+.banner4{
+   
+    width:100%;
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: auto;
+    justify-content: space-between;
+    gap:10px;
+}
+
+.banner4 img{
+    width:99%;
+    margin: auto;
+}
 
 
 
+/* ************************************************************* */
+
+.left{
+    display: flex;
+}
+.left>div{
+    width:48%;
+}
+.left img{
+    width:100px;
+}
+.left2 p{
+   margin-top: 8px;
+   font-size: 13px;
+}
+.left2 h3{
+    font-size: 16px;
+}
+
+.banner5{
+    width: 99%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    margin:20px 8px;
+    box-shadow: rgba(0, 0, 0, 0.34) 0px 0px 10px;
+    padding:10px 10px 10px 30px;
+}
 
 
+.left2-1 img{
+    width:20px;
+    height:20px;
+}
 
+.banner5>div{
+    width:32%;
+}
+.img_link img{
+  width:20px;
+}
+.img_link {
+    display: flex;
+  }
 
+  .middle p{
+   margin-top: 10px;
+  }
 
+  .middle h4{
+    margin-top: 10px;
+  }
+  .middle h6{
+    margin-top: 10px;
+  }
+  
+  
+  .right p{
+    margin-top: 10px;
+   }
  
+   .right h4{
+     margin-top: 10px;
+   }
+   .right h6{
+     margin-top: 10px;
+   }
+  
+
+
+   /* ********************** Grocery CSS ******************************************* */
+
+   .para{
+    margin-top: 90px;
+    font-size: 13px;
+    margin-left: 15px;
+    margin-right: 10px;
+   }
+
+
+   .G-banner1{
+    width:99%;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+   }
+
+   .G-banner1 img{
+      width:32%;
+   }
+   
+   .G-Banner1 h4{
+       margin: 25px 20px 25px 20px;
+   }
+
+   .G-Banner1{
+    box-shadow: rgba(0, 0, 0, 0.34) 0px 0px 10px;
+    padding-bottom: 10px;
+    
+   }
+
+
+   .G-Banner2{
+    display: flex;
+    width:98%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.34) 0px 0px 10px;
+   }
+   .G-Banner2>.one{
+    width:66%;
+    margin-top:4px;
+   
+   }
+   .G-Banner2>.one img{
+    width:100%;
+   
+   }
+
+   .G-Banner2>.two{
+    width:33%;
+   
+   }
+   .G-Banner2>.two img{
+    width:100%;
+   
+   }

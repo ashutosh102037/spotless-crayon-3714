@@ -3,7 +3,7 @@
  const imageSlider =[
     {
         img:"https://rukminim1.flixcart.com/fk-p-flap/3376/560/image/62d1db714bbec85e.jpg?q=50",
-        link :"https://www.flipkart.com/travel/flights?param=Travel-DTHPW-DOM999ASSUREDGIFT_26thMar&otracker=hp_bannerads_1_2.bannerAdCard.BANNERADS_FLYNOVS_OUHIEY704LKC"
+        link :"#"
     },
     {
         img:"https://rukminim1.flixcart.com/fk-p-flap/3376/560/image/112b0206a861accc.jpg?q=50",
