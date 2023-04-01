@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Become a Seller</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a754248aa4.js" crossorigin="anonymous"></script>
-    <style>
-        .imgage{
-            width: 99%;
-           
-            height: 410px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            margin-top: 80px;
-            margin-left: 7px;
-        }
-        .imgage img{
-            width: 100%;
-            height: 400px;
-        }
-        .mid{
-            width:98%;
-            padding: 17px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            margin-bottom: 20px;
-            margin-left: 9px;
-        }
-        .mid h1{
-            margin-top: 10px;
-            margin-bottom: 17px;
-        }
-        .mid p{
-            font-size: 16px;
-            margin-bottom: 14px;
-        }
-    </style>
+	<title>Signup Page</title>
+  <script src="https://kit.fontawesome.com/a754248aa4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+	<style>
+		
+		.signup{
+			width:40%;
+			height: 450px;
+			background-color: antiquewhite;
+			margin-top: 80px;
+			margin-left: 320px;
+			text-align: center;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			padding-top: 10px;
+		}
+		.signup input,button{
+			margin-top: 20px;
+		}
+		.signup #mobile-number {
+           margin-right: 34px;
+		}
+		.signup #email {
+           margin-right: -34px;
+		}
+		.signup #password {
+           margin-right: -15px;
+		}
+		.signup button{
+           background-color: rgb(5, 109, 5);
+		   color: white;
+		   padding: 5px 10px;
+		}
+	</style>
 </head>
 <body>
-    <header>
+	<header>
 
         <div class="logo">
             <a href="index.html"><img src="logo.jpg" alt=""></a>
@@ -171,16 +169,43 @@
         <a href="Cart.html">Cart</a>
        </div>
     </header>
+    <div class="signup">
+		<h1>Signup Page</h1>
+	<form>
+		<label for="full-name">Full Name:</label>
+		<input type="text" id="full-name" name="full-name"><br><br>
+		<label for="mobile-number">Mobile Number:</label>
+		<input type="text" id="mobile-number" name="mobile-number"><br><br>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+		<button type="button" onclick="signup()">Signup</button>
+	</form>
+	<p id="message"></p>
+	</div>
+	
 
-    <div class="imgage">
-        <img src="https://img1a.flixcart.com/fk-sp-static/images/banner_mobile_v2.4.png" alt="">
-    </div>
+	<script>
+		function signup() {
+			const fullName = document.getElementById("full-name").value;
+			const mobileNumber = document.getElementById("mobile-number").value;
+			const email = document.getElementById("email").value;
+			const password = document.getElementById("password").value;
 
-    <div class="mid">
-        <h1>SELL ON FLIPKART</h1>
-        <p>Flipkart Marketplace is India’s leading platform for selling online. Be it a manufacturer, vendor or supplier, simply sell your products online on Flipkart and become a top e-commerce player with minimum investment. Through a team of experts offering exclusive seller workshops, training, and seller support, Flipkart focuses on empowering sellers across India.</p>
-        <p>Selling on Flipkart.com is easy and absolutely free. All you need is to register, list your catalog and start selling your products.</p>
-        <p>What's more? We have third party ‘Ecommerce Service Providers’ who provide logistics, cataloging support, product photoshoot and packaging materials. We have a program called Seller Protection Fund to safeguard sellers from losses via compensations. We provide Flipkart Fulfilment services through which you can ensure faster delivery of your items, quality check by our experts and a delightful packaging. Combine these with the fastest payments in the industry and you get an excellent seller portal. No wonder Flipkart is India’s favourite place to sell online.</p>
-    </div>
+			// Here, you would typically validate the user's inputs and then create a new user in your database or authentication system.
+			// For this example, we'll add the user's data to an array of users in local storage with the key name "signup".
+			let users = JSON.parse(localStorage.getItem("signup")) || [];
+			users.push({
+				"full-name": fullName,
+				"mobile-number": mobileNumber,
+				"email": email,
+				"password": password
+			});
+			localStorage.setItem("signup", JSON.stringify(users));
+
+			document.getElementById("message").innerHTML = "Signup successful!";
+		}
+	</script>
 </body>
 </html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion</title>
+    <style>
+        .item_container{
+            width:99%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			justify-content:space-between;
+			gap:10px;
+        }
+        div{
+            
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			text-align: center;
+			padding: 9px;
+			
+        }
+        
+        div img{
+            width:250px;
+            height:370px;
+        }
+		h1{
+			text-align: center;
+		}
+		button{
+			background-color: rgb(245, 245, 59);
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			border-radius: 4px;
+		}
+    </style>
+</head>
+<body>
+     <h1>Fashion</h1>
+     <div class="item_container"></div>
+
+</body>
+<script>
+
+       let items = [
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/612/612/k0r15e80/t-shirt/p/e/k/m-askporgfj72665-allen-solly-original-imafkh3zfzgjuxch.jpeg?q=70",
+				brand: "Nike",
+				color: "Red",
+				price: 299,
+				size: "M"
+			},
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/612/612/k1118cw0/t-shirt/h/p/z/xl-askporgfp82490-allen-solly-original-imafkztf2tt2uucx.jpeg?q=70",
+				brand: "Levi's",
+				color: "Blue",
+				price: 999,
+				size: "32W x 34L"
+			},
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/612/612/xif0q/t-shirt/f/z/o/l-dfgf-try-this-original-imagn6nt3wq94zhe.jpeg?q=70",
+				brand: "Calvin Klein",
+				color: "White",
+				price: 399,
+				size: "L"
+			},
+            {
+				imageUrl: "https://rukminim1.flixcart.com/image/612/612/k1118cw0/t-shirt/h/p/z/xl-askporgfp82490-allen-solly-original-imafkztf2tt2uucx.jpeg?q=70",
+				brand: "Levi's",
+				color: "Blue",
+				price: 499,
+				size: "32W x 34L"
+			},
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/832/832/xif0q/jean/z/l/u/32-udjeno0666-u-s-polo-association-original-imaggjnb7vfvhmdf.jpeg?q=70",
+				brand: "U.S. POLO ASSN. ",
+				color: "Blue",
+				price: 1259 ,
+				size: "32W x 34L"
+			},
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/t/q/i/m-db1024-37-3bros-original-imagz8zjz7t7sqyb.jpeg?q=70",
+				brand: " Polo",
+				color: "Maroon",
+				price: 299 ,
+				size: "XL"
+			},
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/7/k/2/xl-kcsh-fo-1647-ma-fubar-original-imaghehzpwgjzg2y.jpeg?q=70",
+				brand: " FUBAR ",
+				color: "White",
+				price: 499 ,
+				size: "M"
+			},
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/k/v/xxl-blzt-spread-blazzit-original-imageuzyzmgamx3h.jpeg?q=70",
+				brand: " Blazzit  ",
+				color: "Solid Spread ",
+				price: 674 ,
+				size: "M"
+			},
+			{
+				imageUrl: "https://rukminim1.flixcart.com/image/612/612/xif0q/t-shirt/k/l/y/xl-tsrt-catalog-03-kajaru-original-imagm7taxer3czn5.jpeg?q=70",
+				brand: " KAJARU   ",
+				color: " Pink, Grey  ",
+				price: 389,
+				size: "M L"
+			},
+		];
+      
+        let container = document.querySelector(".item_container");
+        createItemCard(items);
+        function createItemCard(item) {
+           for(let i=0; i<item.length; i++){
+            let div = document.createElement("div");
+			let img = document.createElement("img");
+			let brand = document.createElement("p");
+			let color = document.createElement("p");
+			let price = document.createElement("p");
+			let size = document.createElement("p");
+			let button = document.createElement("button");
+			
+			img.src = item[i].imageUrl;
+			img.alt =item[i].brand;
+			
+			brand.textContent = "Brand: " + item[i].brand;
+			color.textContent = "Color: " + item[i].color;
+			price.textContent = "Price: ₹" + item[i].price;
+			size.textContent = "Size: " + item[i].size;
+			button.textContent = "Add to Cart";
+
+
+			
+			
+			
+			div.appendChild(img);
+			div.appendChild(brand);
+			div.appendChild(color);
+			div.appendChild(price);
+			div.appendChild(size);
+			div.appendChild(button);
+
+            container.append(div);
+
+
+
+			button.addEventListener("click", function() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || []; // get cart from local storage, or create a new one if it doesn't exist
+      let itemToAdd = {
+        imageUrl: item[i].imageUrl,
+        brand: item[i].brand,
+        color: item[i].color,
+        price: item[i].price,
+        size: item[i].size
+      };
+      
+      // check if item is already in cart
+      let itemAlreadyInCart = false;
+      for(let j = 0; j < cart.length; j++) {
+        if(JSON.stringify(cart[j]) === JSON.stringify(itemToAdd)) {
+          itemAlreadyInCart = true;
+          break;
+        }
+      }
+      
+      // add item to cart if it's not already there
+      if(!itemAlreadyInCart) {
+        cart.push(itemToAdd);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        
+      } else {
+        alert("Item is already in cart!");
+      }
+    });
+			
+			
+
+           }
+			
+		}
+		
+
+</script>
+</html>
