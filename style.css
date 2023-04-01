@@ -109,18 +109,38 @@ header{
     width: 100%;
     max-width: 200px;
     background-color: white;
-    height: 250px;
+    height: 260px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transform: translateX(-30%);
     display:none;
     margin-top: 8px;
 
 }
+.login_menue_list{
+    padding:10px;
+    font-size: 14px;
+    
+}
 .loginBtn:hover .login_manue{
   display:block;
 }
 
-
+.login_menue_top{
+    display:flex;
+    justify-content: space-between;
+    
+}
+.login_menue_top a:hover{
+    text-decoration: underline;
+}
+.link{
+    display: flex;
+    margin-top: 20px;
+}
+.link p{
+    
+    margin-left: 15px;
+}
    /* ////////////////   Become a seller Button    ////////////////////////// */
 
 
@@ -155,7 +175,7 @@ header{
     width: 100%;
     max-width: 200px;
     background-color: white;
-    height: 200px;
+    height: 130px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transform: translateX(-30%);
     display:none;
@@ -165,6 +185,27 @@ header{
     display:block;
 }
 
+.more_menue_top{
+    display: flex;
+    color: #000;
+    font-size: 13px;
+}
+.more_menue_top p{
+   margin-left: 12px;
+}
+.link2{
+    color:#000;
+    display: flex;
+    margin-top: 13px;
+    font-size: 13px;
+}
+.link2 p{
+    margin-left: 12px;
+    
+}
+.more_menue_list{
+    padding:10px 0px 10px 12px;
+}
 
 /* ///////////////   Cart Button /////////////////////////////////  */
 
@@ -241,10 +282,41 @@ header{
     /* transform: translateX(-30%); */
     display:none;
     z-index: 100;
+   
 
 }
 .fashion:hover .fashion_manue{
     display:block;
+}
+.list1{
+    width:200px;
+    height: 380px;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-left: 5px;
+
+}
+.list1 p{
+    margin-top: 19px;
+    
+}
+
+.list2{
+    width: 200px;
+    font-size: 14px;
+    padding-left: 10px;
+
+}
+.list2 p{
+    margin-top: 19px;
+    
+}
+.menue_list{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    
 }
 
 .Electronic_manue{
@@ -262,6 +334,7 @@ header{
 .Electronic:hover .Electronic_manue{
     display:block ;
 }
+
 
 
 .home_manue{
@@ -302,15 +375,20 @@ header{
     width: 100%;
     max-width: 200px;
     background-color:white;
-    height: 130px;
+    height: 100px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display:none;
     z-index: 100;
     transform: translateX(-60%);
+    text-align: left;
 }
 
 .Wheeler:hover .Wheeler_manu{
     display:block ;
+}
+.Wheeler_manu p{
+    margin-top: 25px;
+    margin-left: 15px;
 }
  
 
