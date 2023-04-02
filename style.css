@@ -465,6 +465,7 @@ header{
     height: 310px;
     background-color: red;
     display: flex;
+    margin-bottom: 50px;
 }
 .bestofElectronicmoreOption{
     height: 100px;
@@ -574,6 +575,29 @@ header{
 }
 
 
+
+.best-banner{
+    display: flex;
+    width: 99%;
+    box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 20px;
+    margin-top: 100px;
+    margin: auto;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.best-banner img{
+    width:32%;
+}
+.best-heading{
+   padding: 0px 15px;
+   margin-bottom: 50px;
+}
+
+
+.best-heading p{
+    margin-top: 20px;
+    font-size: 14px;
+}
 
 
 /* ************************************* Category ******************************* */

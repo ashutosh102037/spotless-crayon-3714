@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Two Wheeler</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLvpkZCkbs1lW8WUKwLAJPm4dEjXRs90eAjQ&usqp=CAU">
     
    <style>
@@ -13,18 +13,60 @@
         display: grid;
         grid-template-columns: repeat(3,1fr);
         gap:10px;
+		margin-top: 70px;
     }
     div{
         width:92%;
         text-align: center;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		padding: 10px 0px;
     }
     div img{
         width:100%;
     }
+	div button{
+		background-color: aquamarine;
+	}
+	.box{
+		align-items: center;
+		box-shadow: none;
+		position: fixed;
+          top:0;
+        z-index: 100;
+		
+	}
+	.box>a>button{
+		font-size: 20px;
+		background-color: green;
+		color: aliceblue;
+	}
+
+	#filter{
+      margin-top: 100px;
+      margin-left: 200px;
+       width:170px;
+       height:40px;
+       font-size: 18px;
+       margin-bottom: -100px;
+       background-color: aquamarine;
+   }
+
    </style>
 </head>
 <body>
+	   <div class="box">
+		<a href="index.html"><button>Go To Home Page</button></a>
+		
+	</div>
+
+	<select id="filter">
+		<option value="">Filter By Brand</option>
+		<option value="Hero Glamour XTEC">Hero Glamour XTEC</option>
+		<option value="Hero Xpulse 200 4V">Hero Xpulse 200 4V</option>
+		<option value="Hero Destini 125">Hero Destini 125</option>
+	  </select>
+		
+	
       <div class="wheeler_container">
 
       </div>
@@ -97,11 +139,26 @@
 			},
 		];
       
+		let filterby = document.getElementById("filter");
+       filterby.addEventListener("change", function () {
+      if (filterby.value == "") {
+        createItemCard(items);
+      } else {
+        let filteredData = items.filter(function (ele) {
+          return ele.brand == filterby.value;
+        });
+        createItemCard(filteredData);
+      }
+     });
+
+
+
         let container = document.querySelector(".wheeler_container");
 
         createItemCard(items);
 
         function createItemCard(item) {
+			container.innerHTML=""
            for(let i=0; i<item.length; i++){
             let div = document.createElement("div");
 
@@ -130,34 +187,36 @@
 
 
 
-		// 	button.addEventListener("click", function() {
-        //     let cart = JSON.parse(localStorage.getItem("WheelCart")) || []; // get cart from local storage, or create a new one if it doesn't exist
-        //     let itemToAdd = {
-        //     imageUrl: item[i].imageUrl,
-        //     brand: item[i].brand,
-        //     color: item[i].color,
-        //     price: item[i].price,
-        //     size: item[i].size
-        //  };
+	    button.addEventListener("click", function() {
+        let cart = JSON.parse(localStorage.getItem("WheelerCart")) || []; // get cart from local storage, or create a new one if it doesn't exist
+        let itemToAdd = {
+        imageUrl: item[i].imageUrl,
+        brand: item[i].brand,
+        color: item[i].color,
+        price: item[i].price,
+        size: item[i].size
+      };
       
       // check if item is already in cart
-        //     let itemAlreadyInCart = false;
-        //     for(let j = 0; j < cart.length; j++) {
-        //     if(JSON.stringify(cart[j]) === JSON.stringify(itemToAdd)) {
-        //     itemAlreadyInCart = true;
-        //     break;
-        //   }
-        // }
+      let itemAlreadyInCart = false;
+      for(let j = 0; j < cart.length; j++) {
+        if(JSON.stringify(cart[j]) === JSON.stringify(itemToAdd)) {
+          itemAlreadyInCart = true;
+          break;
+        }
+      }
       
       // add item to cart if it's not already there
-    //     if(!itemAlreadyInCart) {
-    //     cart.push(itemToAdd);
-    //     localStorage.setItem("cart", JSON.stringify(cart));
+      if(!itemAlreadyInCart) {
+        cart.push(itemToAdd);
+        localStorage.setItem("WheelerCart", JSON.stringify(cart));
         
-    //     } else {
-    //     alert("Item is already in cart!");
-    //    }
-    //  });
+      } else {
+        alert("Item is already in cart!");
+      }
+    });
+			
+		
 			
            }
 			

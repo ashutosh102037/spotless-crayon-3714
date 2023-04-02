@@ -23,21 +23,43 @@
         }
         
         div img{
-            width:250px;
-            height:370px;
+            width:200px;
+            height:300px;
         }
 		h1{
 			text-align: center;
+			margin-top: 100px;
 		}
 		button{
 			background-color: rgb(245, 245, 59);
 			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 			border-radius: 4px;
 		}
+
+	 .box{
+		
+		box-shadow: none;
+		position: fixed;
+        top:0;
+        z-index: 100;
+		margin-left: 450px;
+		
+		
+	}
+	.box>a>button{
+		font-size: 20px;
+		background-color: green;
+		color: aliceblue;
+		
+	}
     </style>
 </head>
 <body>
-     <h1>Fashion</h1>
+	<div class="box">
+		<a href="index.html"><button>Go To Home Page</button></a>
+	</div>
+
+     <h1> Boys Fashion</h1>
      <div class="item_container"></div>
 
 </body>
@@ -145,9 +167,9 @@
 
 
 
-			button.addEventListener("click", function() {
-      let cart = JSON.parse(localStorage.getItem("cart")) || []; // get cart from local storage, or create a new one if it doesn't exist
-      let itemToAdd = {
+		button.addEventListener("click", function() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || []; // get cart from local storage, or create a new one if it doesn't exist
+        let itemToAdd = {
         imageUrl: item[i].imageUrl,
         brand: item[i].brand,
         color: item[i].color,
