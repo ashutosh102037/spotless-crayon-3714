@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Wheeler</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLvpkZCkbs1lW8WUKwLAJPm4dEjXRs90eAjQ&usqp=CAU">
+    
+   <style>
+    .wheeler_container{
+        width:99%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:10px;
+		margin-top: 150px;
+    }
+    div{
+        width:92%;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		padding: 10px 0px;
+    }
+    div img{
+        width:170px;
+    }
+	div button{
+		background-color: aquamarine;
+	}
+	.box{
+		align-items: center;
+		box-shadow: none;
+		position: fixed;
+          top:0;
+        z-index: 100;
+		
+	}
+	.box>a>button{
+		font-size: 20px;
+		background-color: green;
+		color: aliceblue;
+	}
+    h2{
+        margin-bottom: -120px ;
+        margin-top: 100px;
+        margin-left: 480px;
+    }
+
+   #filter{
+      margin-top: 100px;
+      margin-left: 200px;
+       width:150px;
+       height:40px;
+       font-size: 18px;
+       margin-bottom: -70px;
+       background-color: aquamarine;
+   }
+   </style>
+</head>
+<body>
+	 <div class="box">
+		<a href="index.html"><button>Go To Home Page</button></a>
+		
+	</div> 
+    
+		
+    <h2>Electronics</h2>
+
+
+
+    <select id="filter">
+      <option value="">Filter By Brand</option>
+      <option value="SAMSUNG"> SAMSUNG</option>
+      <option value="Lenovo">Lenovo</option>
+      <option value="Mi">Mi</option>
+    </select>
+	
+      <div class="wheeler_container">
+
+      </div>
+</body>
+
+<script>
+    let items = [
+    {
+        imageUrl : "https://rukminim1.flixcart.com/image/832/832/xif0q/mobile/2/s/7/-original-imagmg6gktts6sfy.jpeg?q=70",
+        name: "SAMSUNG Galaxy S23",
+        price: 124999,
+        brand: "SAMSUNG",
+    },
+    {
+        imageUrl : "https://rukminim1.flixcart.com/image/832/832/xif0q/computer/l/d/c/gaming-3-gaming-laptop-lenovo-original-imaghtkrg8rw6jtp.jpeg?q=70",
+        name: "Lenovo IdeaPad Gaming 3 ",
+        price: 55990,
+        brand: "Lenovo",
+    },
+    {
+        imageUrl : "https://rukminim1.flixcart.com/image/832/832/kxc5nrk0/speaker/home-theatre/2/i/q/nano-plus-et-1414-bluetooth-etmax-original-imag9thfnsu4b28b.jpeg?q=70",
+        name: "etmax NANO BLACK  ",
+        price: 1099,
+        brand: "NANO",
+    },
+    {
+        imageUrl: "https://rukminim1.flixcart.com/image/612/612/l41n2q80/data-cable/micro-usb-cable/s/b/c/sjv4154in-2a-fast-charge-1-meter-micro-usb-cable-black-mi-original-imagfyyz9dthcnn9.jpeg?q=70",
+        name: "Mi Micro USB Cable ",
+        price: 1099,
+        brand: "Mi",
+    },
+    {
+        imageUrl : "https://rukminim1.flixcart.com/image/832/832/xif0q/mobile/o/b/q/-original-imagjzxvtfwd5gb9.jpeg?q=70",
+        name: "OPPO A17k ",
+        price: 9440,
+        brand: "OPPO ",
+    },
+    {
+        imageUrl : "https://rukminim1.flixcart.com/image/832/832/xif0q/smart-headphone/z/c/j/105-black-tan-original-imaghupszxvm7tqm.jpeg?q=70",
+        name: "TAN 105 ",
+        price: 440,
+        brand: "TAN 10",
+    },
+		];
+      
+
+        let filterby = document.getElementById("filter");
+       filterby.addEventListener("change", function () {
+      if (filterby.value == "") {
+        createItemCard(items);
+      } else {
+        let filteredData = items.filter(function (ele) {
+          return ele.brand == filterby.value;
+        });
+        createItemCard(filteredData);
+      }
+     });
+
+
+
+        let container = document.querySelector(".wheeler_container");
+
+        createItemCard(items);
+
+        function createItemCard(item) {
+            container.innerHTML="";
+           for(let i=0; i<item.length; i++){
+            let div = document.createElement("div");
+
+			let img = document.createElement("img");
+            let name = document.createElement("h4")
+            let price = document.createElement("p");
+			let brand = document.createElement("p");
+			let button = document.createElement("button");
+			
+
+
+			img.src = item[i].imageUrl;
+			
+			name.textContent = item[i].name;
+			price.textContent = "Price: ₹" + item[i].price;
+            brand.textContent = "Brand: " + item[i].brand;
+			button.textContent = "Add to Cart";
+
+	
+			
+            div.append(img,name,price,brand,button)
+
+            container.append(div);
+
+
+
+
+	    button.addEventListener("click", function() {
+        let cart = JSON.parse(localStorage.getItem("ElectonicCart")) || []; // get cart from local storage, or create a new one if it doesn't exist
+        let itemToAdd = {
+        imageUrl: item[i].imageUrl,        
+        name: item[i].name,
+        price: item[i].price,
+        brand: item[i].brand,
+       
+      };
+      
+      // check if item is already in cart
+      let itemAlreadyInCart = false;
+      for(let j = 0; j < cart.length; j++) {
+        if(JSON.stringify(cart[j]) === JSON.stringify(itemToAdd)) {
+          itemAlreadyInCart = true;
+          break;
+        }
+      }
+      
+      // add item to cart if it's not already there
+      if(!itemAlreadyInCart) {
+        cart.push(itemToAdd);
+        localStorage.setItem("ElectonicCart", JSON.stringify(cart));
+        
+      } else {
+        alert("Item is already in cart!");
+      }
+    });
+			
+		
+			
+           }
+			
+		}
+		
+       
+
+
+</script>
+</html>
+</script>
+</html>
